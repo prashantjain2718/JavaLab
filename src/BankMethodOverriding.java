@@ -20,7 +20,7 @@ class HDFC extends CentralBank {
 
 public class BankMethodOverriding {
     public static void main(String[] args) {
-        System.out.println("Bank class using method overriding by Palak Agarwal(24EARAD115)");
+        System.out.println("Bank class using method overriding by Prashant Jain(24EARAD124)");
         
         Scanner sc = new Scanner(System.in);
         
