@@ -1,32 +1,40 @@
 import java.util.Scanner;
 
-class Bank {
-    void deposit(int amount) {
-        System.out.println("Deposited cash amount: Rs. " + amount);
-    }
-    
-    void deposit(int amount, String chequeNumber) {
-        System.out.println("Deposited cheque amount: Rs. " + amount + " | Cheque Number: " + chequeNumber);
+class CentralBank {
+    double getInterestRate() {
+        return 5.0;
     }
 }
 
-public class BankMethodOverloading {
+class SBI extends CentralBank {
+    double getInterestRate() {
+        return 7.5;
+    }
+}
+
+class HDFC extends CentralBank {
+    double getInterestRate() {
+        return 8.2;
+    }
+}
+
+public class BankMethodOverriding {
     public static void main(String[] args) {
-        System.out.println("Bank class using method overloading by Prashant Jain(24EARAD124)");
+        System.out.println("Bank class using method overriding by Palak Agarwal(24EARAD115)");
         
         Scanner sc = new Scanner(System.in);
-        Bank myBank = new Bank();
         
-        System.out.print("Enter cash amount to deposit: ");
-        int cash = sc.nextInt();
-        myBank.deposit(cash);
+        System.out.print("Enter 1 to check SBI interest rate, or 2 for HDFC: ");
+        int choice = sc.nextInt();
         
-        System.out.print("Enter cheque amount to deposit: ");
-        int chequeAmount = sc.nextInt();
-        sc.nextLine(); 
+        CentralBank bank;
         
-        System.out.print("Enter cheque number: ");
-        String chequeNum = sc.nextLine();
-        myBank.deposit(chequeAmount, chequeNum);
+        if (choice == 1) {
+            bank = new SBI();
+        } else {
+            bank = new HDFC();
+        }
+        
+        System.out.println("The interest rate is: " + bank.getInterestRate() + "%");
     }
 }
